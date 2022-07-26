@@ -1,12 +1,9 @@
 
-const { Activity } = require('../db')
+const { Activity,Country } = require('../db')
 
 const activityPost = async (req, res, next) => {
     const { name, difficulty, duration, season, countryId } = req.body
-    // if (!name || !difficulty||!duration||!season|| countryId.length ===0) {
-    //     console.log("Falta enviar datos")
-    //    res.status(404).send("Falta enviar datos")
-    // }
+    
     try {
         if (name || difficulty || duration || season || countryId.length === 3) {
             const [activity, created] = await Activity.findOrCreate({
@@ -19,7 +16,7 @@ const activityPost = async (req, res, next) => {
             })
             console.log(created)
             await activity.setCountries(countryId)
-            return res.json(activity)
+            return res.status(200).json(activity)
         }
          
         
@@ -27,7 +24,11 @@ const activityPost = async (req, res, next) => {
         console.log(error);
         return res.send("Faltan datos")
     }
-
 }
 
-module.exports = { activityPost }
+const getActivities = async(req,res)=>{
+    const activities = await Activity.findAll({include: Country});
+    res.status(200).send(activities)
+}
+
+module.exports = { activityPost,getActivities }
