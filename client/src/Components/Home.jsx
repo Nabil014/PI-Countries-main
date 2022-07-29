@@ -3,17 +3,21 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // Acciones:
-import { getAllCountries, getCountryByContinent, getActivities, byActivity } from '../actions/index'
+import { getAllCountries, getByContinent, getActivities, byActivity, byOrder,byPoblation } from '../actions/index'
 
 //Componentes:
 import Card from './Card'
 import Paginado from './Paginado'
+import SearchBar from './SearchBar'
 
 export default function Home() {
   const dispatch = useDispatch()
   //GLOBAL
   const allCountries = useSelector((state) => state.countries)
   const activity = useSelector((state)=> state.activity)
+
+  //LOCAL
+  const [orden,setOrden] = useState('')
 
   //------------------------ PAGINADO --------------------------
   const [pagActual,setPagActual] = useState(1)
@@ -44,17 +48,30 @@ export default function Home() {
     dispatch(getAllCountries())
     document.getElementById("FilterContinent").selectedIndex = 0;
     document.getElementById('FilterActivity').selectedIndex = 0;
+    document.getElementById('FilterOrder').selectedIndex = 0;
   }
 
   function handleFilterContinent(e){
     setPagActual(1)
-    dispatch(getCountryByContinent(e.target.value))
+    dispatch(getByContinent(e.target.value))
   }
 
   function handleActivity(e){
     e.preventDefault()
     setPagActual(1)
     dispatch(byActivity(e.target.value))
+  }
+  function handleOrder(e){
+    e.preventDefault()
+    dispatch(byOrder(e.target.value))
+    setPagActual(1)
+    setOrden(e.target.value)
+  }
+  function handlePoblation(e){
+    e.preventDefault()
+    dispatch(byPoblation(e.target.value))
+    setPagActual(1)
+    setOrden(e.target.value)
   }
   useEffect(() => {
     dispatch(getActivities())
@@ -63,6 +80,7 @@ export default function Home() {
   return (
     <div>
       <Link to="/activities">Crear Actividad</Link>
+      <SearchBar />
       <h1>Paises:</h1>
       <button
         onClick={(e) => {
@@ -72,14 +90,15 @@ export default function Home() {
         Volver a cargar
       </button>
       <div>
-        <select>
+        <select onChange={e=>handleOrder(e)} id='FilterOrder'>
+        <option value="" hidden>Ordenar</option>
           <option value="AZ">A-Z</option>
           <option value="ZA">Z-A</option>
         </select>
-        <select>
+        <select onChange={e=>handlePoblation(e)} id='FilterPoblation'>
           <option value="" hidden>Poblacion...</option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
+          <option value="asc" key='asc'>Ascendente</option>
+          <option value="desc" key='desc'>Descendente</option>
         </select>
         <select onChange={e=>handleFilterContinent(e)} id='FilterContinent'>
         <option value="" hidden>
@@ -101,7 +120,7 @@ export default function Home() {
           <option value="All">Todas</option>
           {
             activity.map(e=>(
-              <option value={e.name}key={e}>{e.name}</option>
+              <option value={e.name}key={e.id}>{e.name}</option>
               
             ))}
         </select>
@@ -126,7 +145,7 @@ export default function Home() {
           )
         }))}
 
-        <input type="Text" placeholder="Nombre del pais..." />
+        
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ const getById = async (req, res, next) => {
             include: Activity,
         });
         if (!response) {
-            res.status(404).send(`El ID =${id} no corresponde a un pais`)
+           return res.status(404).send(`El ID =${id} no corresponde a un pais`)
         }
         res.json(response)
     } catch (error) {
@@ -24,9 +24,9 @@ const getCountry = async (req, res, next) => {
         if(!name){
             const response = await Country.findAll({include: Activity
             })
-            res.status(200).json(response);
+           return res.status(200).json(response);
         }
-        const response = await Country.findAll({
+        const response = await Country.findAll({include: Activity,
             where: {
                 name: {
                     [Op.iLike]: "%" + name + "%", 
@@ -34,7 +34,7 @@ const getCountry = async (req, res, next) => {
             }
         });
         if (response.length === 0) {
-            res.status(404).send(`El nombre ${name}  no corresponde a ningun pais`)
+          return res.status(404).send(`El nombre ${name}  no corresponde a ningun pais`)
         }
         res.json(response)
     } catch (error) {
@@ -42,19 +42,9 @@ const getCountry = async (req, res, next) => {
     }
 
 }
-// const getCountries = async (req, res, next) => {
-//     try {
-//         const response = await Country.findAll({
-//         })
-//         res.status(201).json(response);
 
-//     } catch (error) {
-//         next(error)
-//     }
-// }
 
 module.exports = {
     getById,
-    // getCountries,
     getCountry
 }

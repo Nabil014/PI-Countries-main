@@ -1,7 +1,10 @@
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
-export const GET_COUNTRY_BY_CONTINENT = 'GET_BY_CONTINENT'
+export const GET_BY_CONTINENT = 'GET_BY_CONTINENT'
 export const BY_ACTIVITY = 'BY_ACTIVITY'
 export const GET_ACTIVITY = 'GET_ACTIVITY'
+export const BY_ORDER = 'BY_ORDER'
+export const BY_POBLATION = 'BY_POBLATION'
+export const GET_NAME_COUNTRY = 'GET_NAME_COUNTRY'
 
 const axios = require('axios');
 
@@ -15,7 +18,7 @@ export function getAllCountries() {
     }
 }
 
-export function getCountryByContinent(payload) {
+export function getByContinent(payload) {
 
     return {
         type: "GET_BY_CONTINENT",
@@ -35,10 +38,22 @@ export function postActivity(payload) {
     }
 }
 
-export function byActivity (payload){
-    console.log(payload)
+export function byActivity(payload) {
     return {
         type: 'BY_ACTIVITY',
+        payload
+    }
+}
+
+export function byOrder(payload) {
+    return {
+        type: 'BY_ORDER',
+        payload
+    }
+}
+export function byPoblation(payload) {
+    return {
+        type: 'BY_POBLATION',
         payload
     }
 }
@@ -47,14 +62,26 @@ export function getActivities() {
     return async function (dispatch) {
         try {
             const response = await axios.get('http://localhost:3001/activities')
-        return dispatch({
-            type: "GET_ACTIVITY",
-            payload: response.data
-        })
+            return dispatch({
+                type: "GET_ACTIVITY",
+                payload: response.data
+            })
         } catch (error) {
             console.log(error)
         }
-        
     }
+}
 
+export function getNameCountry(name) {
+    return async function (dispatch) {
+        try {
+            var response = await axios.get('http://localhost:3001/countries?name=' + name)
+            return dispatch({
+                type: 'GET_NAME_COUNTRY',
+                payload: response.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
