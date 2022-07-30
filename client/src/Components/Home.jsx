@@ -132,7 +132,7 @@ export default function Home() {
         {React.Children.toArray(pagCountryActual?.map((elem) => {
           return (
             <div>
-              <Link to={"/home"+elem.id}>
+              <Link to={"/home/"+elem.id}>
                 <Card
               key={elem}
               name={elem.name}

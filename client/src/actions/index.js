@@ -5,6 +5,7 @@ export const GET_ACTIVITY = 'GET_ACTIVITY'
 export const BY_ORDER = 'BY_ORDER'
 export const BY_POBLATION = 'BY_POBLATION'
 export const GET_NAME_COUNTRY = 'GET_NAME_COUNTRY'
+export const GET_DETAILS = 'GET_DETAILS'
 
 const axios = require('axios');
 
@@ -75,7 +76,7 @@ export function getActivities() {
 export function getNameCountry(name) {
     return async function (dispatch) {
         try {
-            var response = await axios.get('http://localhost:3001/countries?name=' + name)
+            let response = await axios.get('http://localhost:3001/countries?name=' + name)
             return dispatch({
                 type: 'GET_NAME_COUNTRY',
                 payload: response.data
@@ -83,5 +84,21 @@ export function getNameCountry(name) {
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+export function getDetail (id){
+    console.log(id)
+    return async function(dispatch){
+       try {
+        let response = await axios.get('http://localhost:3001/countries/'+id)
+        return dispatch({
+            type: 'GET_DETAILS',
+            payload: response.data
+        })
+       } catch (error) {
+        console.log(error)
+       }
+        
     }
 }

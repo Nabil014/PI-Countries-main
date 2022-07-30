@@ -25,7 +25,6 @@ module.exports = sequelize => {
             validate: {
                 isIn:[["Verano", "Otoño", "Invierno", "Primavera"]]
             },
-            defaultValue: "Todo el año",
         },
     },{
         timestamps: false

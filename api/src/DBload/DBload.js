@@ -14,7 +14,7 @@ const loadDB = async () => {
             flag: elem.flags[1],
             continent: elem.continents[0],
             subregion: elem.subregion,
-            capital: elem.capital ? elem.capital : "No tiene capital",
+            capital: elem.capital ? elem.capital[0] : "No tiene capital",
             population: elem.population,
             area:elem.area
         }

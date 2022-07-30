@@ -34,9 +34,9 @@ module.exports = (sequelize) => {
     population: {
       type: DataTypes.INTEGER
     },
-    duration: {
-      type: DataTypes.INTEGER
-    },
+    // duration: {
+    //   type: DataTypes.INTEGER
+    // },
     
   },{
     timestamps:false
