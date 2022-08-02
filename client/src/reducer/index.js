@@ -97,12 +97,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 detail: action.payload
             }
-        case 'CLEAR':
-            
-            return{
-                ...state,
-                error: action.payload
-            }
+        
         default: return state
     }
 }

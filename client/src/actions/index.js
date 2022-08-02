@@ -22,6 +22,22 @@ export function getAllCountries() {
         })
     }
 }
+// CON PROMISES
+// export const getAllCountries = () => {
+//   return function (dispatch) {
+//     axios.get("http://localhost:3001/countries")
+//       .then((response) => {
+//         dispatch({
+//           type: 'GET_ALL_COUNTRIES',
+//           payload: response.data,
+//         }); 
+//       });
+//   };
+// };
+    
+
+  
+
 
 export function getByContinent(payload) {
 
@@ -106,9 +122,17 @@ export function getDetail (id){
         
     }
 }
-export function clear(payload){
-    return {
-        type: 'CLEAR',
-        payload
-    }
-}
+// USANDO FETCH
+// export const getDetail = (id) => {
+//     return async (dispatch) => {
+//         return fetch("http://localhost:3001/countries/" + id)
+//       .then((response) => response.json())
+//       .then((response) => {
+//          dispatch({
+//           type: 'GET_DETAILS',
+//           payload: response
+//         })
+//       });
+//   };
+// };
+

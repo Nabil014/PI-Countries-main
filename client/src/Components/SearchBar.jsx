@@ -15,14 +15,7 @@ function handleInputChange(e){
     setName(e.target.value)
     
 }
-// function keyPress(e){
-//     if(e.keyCode === '13')
-//     {
-//         e.preventDefault()
-//         dispatch(getNameCountry(name))
-//         setName('')
-//     }
-// }
+
 function handleSubmit(e){
     e.preventDefault()
     dispatch(getNameCountry(name))
