@@ -1,0 +1,95 @@
+.cont{
+    background: linear-gradient(-15deg, #94B49F   , #DF7861);
+    min-height: 100vh;
+    
+}
+
+.volver{
+    display: flex;
+    margin-left: 2rem;
+    outline: none;
+}
+.volver>a{
+    outline: none;
+}
+.volver>a>button{
+  margin-top: 1rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: #1F4690;
+  transition: 1s;
+  vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+.volver>a>button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.363);
+    transition: 0.6s;
+    color: whitesmoke;
+    background-color: #1F4690;
+    border: 1px solid white;
+    border-radius: 9999px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    
+}
+
+.nombre{
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-family: cursive;
+    color: #b9b6adc9;
+    transition: 1s;
+    margin-top: -1rem;
+    position: static;
+}
+.nombre:hover{
+    color: #FCF8E8;
+    transition: 1s;
+    
+    
+}
+.nombre>h1>:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.39);
+    transition: 1s;
+}
+.imagen{
+}
+.imagen>img{
+    border-radius: 1rem;
+    margin-left: 37%;
+    margin-bottom: 0.5rem;
+    transition: 1s;  
+}
+.imagen>img:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.418),
+    0 17px 50px 0 rgba(0, 0, 0, 0.39);
+    transition: 0.7s;
+}
+.descrip{
+    border: 1px solid white;
+    border-radius: 2rem;
+    background-color: #fcf8e871;
+    backdrop-filter: blur(20px);
+    width: 70rem;
+    margin-left: 10%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-column-gap: 30px;
+    justify-content: center;
+    transition: 1s;
+}
+.descrip:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.281),
+    0 17px 50px 0 rgba(0, 0, 0, 0.253);
+    transition: 1s;
+}

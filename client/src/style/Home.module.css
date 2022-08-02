@@ -2,9 +2,8 @@
   background: linear-gradient(0deg, #fcf8e8, #76ba99);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
   flex-direction: column;
-  width: 100vw;
+  min-height: 100vh;
 }
 
 .contenedor {
@@ -97,7 +96,7 @@
     0 17px 50px 0 rgba(0, 0, 0, 0.363);
 }
 .cAct > a {
-  color: black;
+  color: white;
 }
 .cAct > a:hover {
   color: whitesmoke;
@@ -109,4 +108,16 @@
   top: 1.2rem;
 }
 
+.filtros{
+  justify-content: center;
+  display: flex;
+  padding-top: 0.7rem;
+}
+.filtros>select{
+  border-radius: 8px;
+  background-color: #F9F5EB;
+  border: 1px solid white;
+  color: #003865;
+  margin: 5px;
+}
 

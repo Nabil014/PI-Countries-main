@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetail } from '../actions'
 import { useEffect } from 'react'
+import {IoArrowBackSharp} from 'react-icons/io5'
+import estilos from '../style/Details.module.css'
 
 export default function Detail(props) {
   const dispatch = useDispatch()
@@ -20,15 +22,21 @@ export default function Detail(props) {
     }
   })
   return (
-    <div>
-         <Link to="/home">
-          <button>Volver</button>
-          </Link>
-      <h1>{countryDet.name}</h1>
+    <div className={estilos.cont}>
       <div>
+        <div className={estilos.volver}>
+          <Link style={{ textDecoration: 'none' }} to="/home">
+          <button><IoArrowBackSharp/></button>
+          </Link>
+        </div>
+        <div className={estilos.nombre}>
+      <h1>{countryDet.name}</h1>
+        </div>
+      <div className={estilos.imagen}>
         <img src={countryDet.flag} alt="img" />
       </div>
-      <div>
+      <div className={estilos.descrip}>
+        <div className={estilos.detalles}>
         <h3>Detalles:</h3>
         <p>Code: {countryDet.id}</p>
         <p>Continente: {countryDet.continent}</p>
@@ -39,7 +47,7 @@ export default function Detail(props) {
           {countryDet.subregion ? countryDet.subregion : 'No tiene subregion'}
         </p>
       </div>
-      <div>
+      <div className={estilos.actividades}>
         <h3>Actividades:</h3>
         {activities?.length > 0
           ? activities.map((e) => {
@@ -53,10 +61,9 @@ export default function Detail(props) {
               )
             })
           : 'No tiene actividades..'}
-
-           
-          
+         </div>
+      </div>
       </div>
     </div>
-  )
+      )
 }

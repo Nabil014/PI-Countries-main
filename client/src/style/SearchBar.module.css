@@ -8,19 +8,25 @@
     padding-left: 6px;
     outline: none;
     transition: 1s;
+    vertical-align: middle;
+    justify-content: center;
 }
+
 
 .caja>input{
     border: none;
     background-color: transparent;
     outline: none;
     transition: 1s;
+    padding-right: 5px;
+    vertical-align: middle;
 }
 .caja>input:focus{
   height: 1.3rem;
   font-size: 0.9rem;
   color: white;
   transition: 1s;
+  vertical-align: middle;
 }
 
 .boton{
@@ -34,6 +40,8 @@
   font-size: 1.5rem;
   color: white;
   outline: none;
+  padding-top: 3px;
+  padding-left: 3px;
 }
 .boton>button:active{
     color: whitesmoke;

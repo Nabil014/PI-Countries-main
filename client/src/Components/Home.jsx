@@ -132,21 +132,15 @@ export default function Home() {
           <option value="Oceania" key="Oceania"> OCEANIA </option>
         </select>
         <select name="ActivTuristica" onChange={e=>handleActivity(e)} id='FilterActivity'>
-        <option value="" hidden>
-                  Filtrar por Actividades...
-                </option>
-                {!activity !== []?
+        <option value="" hidden>  Filtrar por Actividades... </option>
           <option value="All" >Todas</option>
-                :<option value="All" disabled>Todas</option>
-        }
           {
-            activity.map(e=>(
+          activity.map(e=>(
               <option value={e.name}key={e.id}>{e.name}</option>
-            ))}
-        </select>
+              ))}
+              </select>
             </div>
             <div className={estilos.contTotal}>
-              
             <div className={estilos.contenedor}>
         {React.Children.toArray(pagCountryActual?.map((elem) => {
           return (
