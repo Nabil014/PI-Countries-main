@@ -85,6 +85,8 @@
   display: table-cell;
   vertical-align: middle;
   transition: 0.5s;
+  font-weight: bold ;
+  background-color: transparent;
 }
 
 .cAct:hover {

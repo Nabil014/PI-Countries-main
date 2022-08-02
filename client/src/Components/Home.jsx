@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {IoReload} from 'react-icons/io5'
 // Acciones:
-import { getAllCountries, getByContinent, getActivities, byActivity, byOrder,byPoblation, clear } from '../actions/index'
+import { getAllCountries, getByContinent, getActivities, byActivity, byOrder,byPoblation  } from '../actions/index'
 
 //Componentes:
 import Card from './Card'
@@ -55,7 +55,6 @@ export default function Home() {
     document.getElementById("FilterContinent").selectedIndex = 0;
     document.getElementById('FilterActivity').selectedIndex = 0;
     document.getElementById('FilterOrder').selectedIndex = 0;
-    dispatch(clear(e.target.value))
   }
 
   function handleFilterContinent(e){

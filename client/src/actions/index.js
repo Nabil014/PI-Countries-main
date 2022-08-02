@@ -9,7 +9,6 @@ export const BY_POBLATION = 'BY_POBLATION'
 export const GET_NAME_COUNTRY = 'GET_NAME_COUNTRY'
 export const GET_DETAILS = 'GET_DETAILS'
 export const ERRORS = 'ERRORS'
-export const CLEAR = 'CLEAR'
 
 const axios = require('axios');
 
