@@ -1,0 +1,63 @@
+.Landing{
+    background-image: url('../Fondos/fond.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+     background-size: cover;
+     object-fit: cover;
+}
+
+
+.column{
+    background-color: rgba(0, 0, 0, 0.493);
+    width: 25vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center; 
+
+}
+.titulo{
+    color: #ffffff;
+    justify-content: center;
+    height: 25%;
+    background-color: transparent;
+    padding-top: 10%;
+    flex-direction: column;
+    display: inline;
+
+}
+.titulo>img{
+    width: 265px;
+}
+.titulo>h1{
+    padding-top: 0%;
+    margin-top: 0%;
+    margin-left: calc(25vw/3);
+}
+.boton{
+    margin-left: calc(25vw/2.6);
+    margin-top: 50vh;
+}
+.btn  {
+    align-items: center;
+    border-radius: 9999px;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(245, 245, 245);
+    font-size: 1rem;
+    border: none;
+    color: #1f4790cb;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    transition-duration: 0.6s;
+}  
+
+.btn:hover{
+    background-color: #1F4690;
+    color: #ffffff;
+    box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}

@@ -1,0 +1,112 @@
+.homePage {
+  background: linear-gradient(0deg, #fcf8e8, #76ba99);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-column-gap: 30px;
+  justify-content: center;
+}
+.card {
+  text-align: center;
+  cursor: pointer;
+  margin: 1rem;
+  padding-top: 5%;
+  background-color: #76ba99b0;
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: white 0.1rem solid;
+  width: 25rem;
+  transition: 0.75s;
+
+}
+.card:hover {
+  background-color: #abc8ffaf;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.39);
+  transition: 0.75s;
+}
+
+.card > img {
+  border: 1px solid lightGrey;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  height: 100px;
+}
+
+.btnRef > button {
+  display: flex;
+  right: 2rem;
+  top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  border-radius: 9999px;
+  justify-content: center;
+  border: solid 2px transparent;
+  background-color: transparent;
+  padding: 0;
+  align-items: center;
+  transition: background-color 0.25s;
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 2rem;
+  transition-duration: 0.7s;
+}
+.btnRef > button:hover {
+  color: whitesmoke;
+  background-color: #1f4690;
+  transition: background-color 1s;
+  border: #1f4690 2px solid;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.363);
+}
+.cAct {
+  top: 1.2rem;
+  text-align: center;
+  align-items: center;
+  padding-top: 5px;
+  width: 8rem;
+  height: 1.8rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  left: 46vw;
+  padding: 0.5rem;
+  display: table-cell;
+  vertical-align: middle;
+  transition: 0.5s;
+}
+
+.cAct:hover {
+  color: whitesmoke;
+  background-color: #1f4690;
+  transition: 0.8s;
+  border: #1f4690 2px solid;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.363);
+}
+.cAct > a {
+  color: black;
+}
+.cAct > a:hover {
+  color: whitesmoke;
+}
+
+.sBar{
+  position: relative;
+  width: 12rem;
+  top: 1.2rem;
+}
+
+

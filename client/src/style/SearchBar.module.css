@@ -1,0 +1,43 @@
+.caja{
+    display: flex;
+    flex-direction: row;
+    border: solid white 1px;
+    border-radius: 9999px;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 6px;
+    outline: none;
+    transition: 1s;
+}
+
+.caja>input{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    transition: 1s;
+}
+.caja>input:focus{
+  height: 1.3rem;
+  font-size: 0.9rem;
+  color: white;
+  transition: 1s;
+}
+
+.boton{
+    margin-left: -3.2rem;
+    outline: none;
+    
+}
+.boton>button{
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  outline: none;
+}
+.boton>button:active{
+    color: whitesmoke;
+  background-color: #1f4690;
+  border: #1f4690 2px solid;
+  border-radius: 9999px;
+}

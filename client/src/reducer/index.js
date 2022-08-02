@@ -15,7 +15,8 @@ const initialState = {
     allCountries: [],
     activity: [],
     allActivities: [],
-    detail: []
+    detail: [],
+    // error:""
 }
 
 function rootReducer(state = initialState, action) {
@@ -43,11 +44,8 @@ function rootReducer(state = initialState, action) {
             }
         case 'BY_ACTIVITY':
             const allActivities = state.allActivities
-            // const activity = state.activity
-            console.log(action.payload)
             const activityFilter = action.payload === 'All' ? allActivities.filter(e=>e.activities.length >0) : 
             allActivities.filter(c => c.activities.find((elem) => elem.name.toLowerCase() === action.payload))
-            console.log(activityFilter)
             return {
                 ...state,
                 countries: activityFilter
@@ -98,6 +96,12 @@ function rootReducer(state = initialState, action) {
             return{
                 ...state,
                 detail: action.payload
+            }
+        case 'CLEAR':
+            
+            return{
+                ...state,
+                error: action.payload
             }
         default: return state
     }

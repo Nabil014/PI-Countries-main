@@ -1,32 +1,47 @@
 import React from "react";
 import {useDispatch} from 'react-redux'
 import{useState} from 'react'
-import { getNameCountry } from "../actions";
+import { getNameCountry} from "../actions";
+import {IoSearch} from 'react-icons/io5'
+import estilos from '../style/SearchBar.module.css'
 
-export default function SearchBar (){
+export default function SearchBar (props){
     const dispatch = useDispatch()
     const [name,setName]= useState('')
+    
 
 function handleInputChange(e){
     e.preventDefault()
     setName(e.target.value)
-    console.log(name)
     
 }
-
+// function keyPress(e){
+//     if(e.keyCode === '13')
+//     {
+//         e.preventDefault()
+//         dispatch(getNameCountry(name))
+//         setName('')
+//     }
+// }
 function handleSubmit(e){
     e.preventDefault()
     dispatch(getNameCountry(name))
     setName('')
+    props.pagActual(1)
 }
     return(
-        <div>
+        <div className={estilos.buscador}>
+           <div className={estilos.caja}>
             <input type="text"
             placeholder="Buscar.."
             onChange={(e)=>handleInputChange(e)}
             value={name}
             />
-            <button type="submit" onClick={(e)=>handleSubmit(e)}>Buscar</button>
+            <div className={estilos.boton}>
+            <button type="submit"  onClick={(e)=>handleSubmit(e)}><IoSearch/></button>
+            </div>
+        </div> 
         </div>
+        
     )
 }

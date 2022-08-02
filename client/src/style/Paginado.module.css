@@ -1,0 +1,61 @@
+.paginado{
+    text-align: center;
+    position: relative;
+    bottom: 32px;
+    margin-top: 32px;
+}
+.paginado>ul{
+    margin-bottom: 0;
+}
+/* .btn>button{
+    margin: 2px;
+    border-radius: 9999px;
+    justify-content: center;
+    border: solid 1px rgba(0, 0, 0, 0.39) ;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn>button:hover{
+    color: whitesmoke;
+    background-color:#1F4690;
+    transition: background-color 0.7s;
+    border: #1F4690 2px solid;
+}
+.btn>button::after{
+    color: whitesmoke;
+    background-color:#1F4690;
+    transition: background-color 0.7s;
+    border: #1F4690 2px solid;
+}
+.btn>button:focus{
+    color: whitesmoke;
+    background-color:#1F4690;
+    transition: background-color 0.7s;
+    border: #1F4690 2px solid;
+} */
+.pagX{
+    margin: 2px;
+    border-radius: 9999px;
+    justify-content: center;
+    border: solid 1px rgba(0, 0, 0, 0.39) ;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.9s;
+}
+.pagX:hover{
+    color: whitesmoke;
+    background-color:#1F4690;
+    transition: background-color 1s;
+    border: #1F4690 2px solid;
+    font-size: 1rem;
+}
+
+.pagUno{
+    margin: 2px;
+    border-radius: 9999px;
+    color: whitesmoke;
+    background-color:#1F4690;
+    transition: background-color 0.7s;
+    border: #1F4690 2px solid;
+    font-size: 1rem;
+}

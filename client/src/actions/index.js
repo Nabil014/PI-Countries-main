@@ -1,3 +1,5 @@
+import Swal from 'sweetalert'
+
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
 export const GET_BY_CONTINENT = 'GET_BY_CONTINENT'
 export const BY_ACTIVITY = 'BY_ACTIVITY'
@@ -6,6 +8,8 @@ export const BY_ORDER = 'BY_ORDER'
 export const BY_POBLATION = 'BY_POBLATION'
 export const GET_NAME_COUNTRY = 'GET_NAME_COUNTRY'
 export const GET_DETAILS = 'GET_DETAILS'
+export const ERRORS = 'ERRORS'
+export const CLEAR = 'CLEAR'
 
 const axios = require('axios');
 
@@ -82,13 +86,13 @@ export function getNameCountry(name) {
                 payload: response.data
             })
         } catch (error) {
-            console.log(error)
+            // alert('Pais no encontrado')
+            Swal('Pais no encontrado','','error')
         }
     }
 }
 
 export function getDetail (id){
-    console.log(id)
     return async function(dispatch){
        try {
         let response = await axios.get('http://localhost:3001/countries/'+id)
@@ -100,5 +104,11 @@ export function getDetail (id){
         console.log(error)
        }
         
+    }
+}
+export function clear(payload){
+    return {
+        type: 'CLEAR',
+        payload
     }
 }

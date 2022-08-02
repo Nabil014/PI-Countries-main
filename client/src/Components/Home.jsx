@@ -2,20 +2,25 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import {IoReload} from 'react-icons/io5'
 // Acciones:
-import { getAllCountries, getByContinent, getActivities, byActivity, byOrder,byPoblation } from '../actions/index'
+import { getAllCountries, getByContinent, getActivities, byActivity, byOrder,byPoblation, clear } from '../actions/index'
 
 //Componentes:
 import Card from './Card'
 import Paginado from './Paginado'
 import SearchBar from './SearchBar'
 
+//Estilos:
+import estilos from '../style/Home.module.css'
+
+
 export default function Home() {
   const dispatch = useDispatch()
   //GLOBAL
   const allCountries = useSelector((state) => state.countries)
   const activity = useSelector((state)=> state.activity)
-
+  
   //LOCAL
   const [orden,setOrden] = useState('')
 
@@ -39,6 +44,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllCountries())
     dispatch(byActivity())
+    
   }, [dispatch])
 
 
@@ -49,6 +55,7 @@ export default function Home() {
     document.getElementById("FilterContinent").selectedIndex = 0;
     document.getElementById('FilterActivity').selectedIndex = 0;
     document.getElementById('FilterOrder').selectedIndex = 0;
+    dispatch(clear(e.target.value))
   }
 
   function handleFilterContinent(e){
@@ -79,18 +86,29 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/activities">Crear Actividad</Link>
-      <SearchBar />
-      <h1>Paises:</h1>
-      <button
+      <div className={estilos.homePage}>
+        <div className={estilos.cAct}>
+          <Link style={{ textDecoration: 'none' }} to="/activities">Crear Actividad</Link>
+        </div>
+        <div>
+          <div className={estilos.sBar}>
+      <SearchBar 
+      pagActual = {setPagActual}
+      />
+      
+          </div>
+      <div className={estilos.btnRef}>
+        <button         //Boton Refresh
         onClick={(e) => {
           handleClick(e)
         }}
       >
-        Volver a cargar
+        <IoReload/>
       </button>
+      </div>
       <div>
-        <select onChange={e=>handleOrder(e)} id='FilterOrder'>
+            <div className={estilos.filtros}>
+          <select onChange={e=>handleOrder(e)} id='FilterOrder'>
         <option value="" hidden>Ordenar</option>
           <option value="AZ">A-Z</option>
           <option value="ZA">Z-A</option>
@@ -117,36 +135,45 @@ export default function Home() {
         <option value="" hidden>
                   Filtrar por Actividades...
                 </option>
-          <option value="All">Todas</option>
+                {!activity !== []?
+          <option value="All" >Todas</option>
+                :<option value="All" disabled>Todas</option>
+        }
           {
             activity.map(e=>(
               <option value={e.name}key={e.id}>{e.name}</option>
-              
             ))}
         </select>
-        <Paginado
-        countriesPorPag={countriesPorPag}
-        allCountries = {allCountries.length}
-        paginado={paginado}
-        />
+            </div>
+            <div className={estilos.contTotal}>
+              
+            <div className={estilos.contenedor}>
         {React.Children.toArray(pagCountryActual?.map((elem) => {
           return (
-            <div>
-              <Link to={"/home/"+elem.id}>
-                <Card
-              key={elem}
-              name={elem.name}
-              image={elem.flag}
-              continent={elem.continent}
-                />
-              </Link>
-            </div>
-            
+            <div className={estilos.card}>
+            <Card
+                id={elem.id}
+                key={elem}
+                name={elem.name}
+                image={elem.flag}
+                continent={elem.continent} >
+            </Card>
+              </div>
           )
         }))}
-
-        
-      </div>
-    </div>
-  )
+        </div>
+            </div>
+        <div className={estilos.pag}>
+           <Paginado
+           countriesPorPag={countriesPorPag}
+           allCountries = {allCountries.length}
+           paginado={paginado}
+           pagActual = {pagActual}
+           />   
+           </div>
+           </div>
+           </div>
+           </div>
+           </div>
+           )
 }
